@@ -12,6 +12,9 @@ public class Main {
         ob.display(root);
     }
     public Node construct(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return null;
+        }
         Node head = new Node(arr[0]);
         Node temp = head;
         for (int i = 1; i < arr.length; i++) {
