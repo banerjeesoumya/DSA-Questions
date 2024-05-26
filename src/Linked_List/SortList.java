@@ -2,7 +2,7 @@ package Linked_List;
 
 public class SortList extends Main{
     public static void main(String[] args) {
-        int[] arr = {};
+        int[] arr = {1, 2, 2, 1, 2, 0, 2, 2};
         SortList sl = new SortList();
         Node root;
         root = sl.construct(arr);
