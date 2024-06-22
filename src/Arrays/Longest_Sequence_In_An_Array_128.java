@@ -30,20 +30,7 @@ public class Longest_Sequence_In_An_Array_128 {
         }
         return longest;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//        Better Approach :-
 
 //        Arrays.sort(nums);
 //        int lastSmall = Integer.MIN_VALUE;
