@@ -59,4 +59,12 @@ public class Graph {
             }
         }
     }
+    public void dfs_recur1(int node, ArrayList<ArrayList<Integer>> adj, boolean[] visited) {
+        visited[node] = true;
+        for (int i : adj.get(node)) {
+            if (!visited[i]) {
+                dfs_recur1(i, adj, visited);
+            }
+        }
+    }
 }
