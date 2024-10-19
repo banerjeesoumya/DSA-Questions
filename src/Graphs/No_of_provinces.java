@@ -11,6 +11,7 @@ public class No_of_provinces {
         graph.addEdge(2, 0);
 
         No_of_provinces ob = new No_of_provinces();
+        System.out.println(graph.adj.size());
         System.out.println(ob.findNoOfProvinces(graph.adj, graph));
     }
 
