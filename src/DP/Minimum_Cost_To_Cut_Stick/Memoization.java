@@ -26,7 +26,7 @@ public class Memoization {
         for (int[] row : dp) {
             Arrays.fill(row, -1);
         }
-        return dp(1, c - 2, cutsList, dp);
+        return dp(1, cuts.length, cutsList, dp);
     }
     public static int dp(int i, int j, ArrayList<Integer> cuts, int[][] dp) {
         if (i > j) {

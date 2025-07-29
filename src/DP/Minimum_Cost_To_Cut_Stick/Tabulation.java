@@ -19,7 +19,7 @@ public class Tabulation {
         }
         cutsList.add(0); cutsList.add(n);
         Collections.sort(cutsList);
-        int c = cutsList.size();
+        int c = cuts.length;
         int[][] dp = new int[c + 2][c + 2];
         for (int[] row : dp) {
             Arrays.fill(row, 0);
