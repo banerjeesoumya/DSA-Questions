@@ -12,48 +12,40 @@ public class Tabulation {
         System.out.println("Example 1 Output: " + result1);
 
         // Example 2
-        int[] nums2 = {1, 2, 4, 8};
+        int[] nums2 = {5, 4, 11, 1, 16, 8};
         List<Integer> result2 = largestDivisibleSubset(nums2);
         System.out.println("Example 2 Output: " + result2);
 
     }
     public static List<Integer> largestDivisibleSubset(int[] nums) {
         int n = nums.length;
-        if (n == 0) {
-            return new ArrayList<>();
-        }
-
         Arrays.sort(nums);
         int[] dp = new int[n];
+        Arrays.fill(dp, 1);
         int[] hash = new int[n];
-        Arrays.fill(dp, 1);  // Initially, every element is a subset of size 1
-        int maxLen = 1;  // Length of the largest divisible subset
-        int maxIdx = 0;  // Index of the last element in the largest divisible subset
-
-        // Compute dp array
-        for (int i = 1; i < n; i++) {
-            for (int j = 0; j < i; j++) {
-                if (nums[i] % nums[j] == 0 && dp[i] < dp[j] + 1) {
-                    dp[i] = dp[j] + 1;
-                    hash[i] = j;
+        int max = 1;
+        int lastInd = 0;
+        for (int i = 0; i < n; i++) {
+            hash[i] = i;
+            for (int prev_ind = 0; prev_ind < i; prev_ind ++) {
+                if ((nums[i] % nums[prev_ind] == 0) && (dp[i] < 1 + dp[prev_ind])) {
+                    dp[i] = 1 + dp[prev_ind];
+                    hash[i] = prev_ind;
                 }
             }
-            if (dp[i] > maxLen) {
-                maxLen = dp[i];
-                maxIdx = i;
+            if (dp[i] > max) {
+                max = dp[i];
+                lastInd = i;
             }
         }
-
-        // Reconstruct the largest divisible subset
-        List<Integer> ans = new ArrayList<>();
-        int k = maxIdx;
-        while (dp[k] > 1) {
-            ans.add(nums[k]);
+        List<Integer> temp = new ArrayList<>();
+        int k = lastInd;
+        temp.add(nums[k]);
+        while (hash[k] != k) {
             k = hash[k];
+            temp.add(nums[k]);
         }
-        ans.add(nums[k]);
-
-        Collections.reverse(ans);
-        return ans;
+        Collections.reverse(temp);
+        return temp;
     }
 }
