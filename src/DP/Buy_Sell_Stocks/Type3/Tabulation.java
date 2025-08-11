@@ -22,7 +22,7 @@ public class Tabulation {
                     } else {
                         profit = Math.max((prices[i] + dp[i + 1][1][cap - 1]), (0 + dp[i + 1][0][cap]));
                     }
-                    dp[i][buy][cap] = profit;
+                    dp[i][buy][cap] = profit;   
                 }
             }
         }
