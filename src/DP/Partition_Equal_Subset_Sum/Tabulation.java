@@ -23,7 +23,6 @@ public class Tabulation {
         if (arr[0] <= target) {
             dp[0][arr[0]] = true;
         }
-        dp[0][arr[0]] = true;
         for (int i = 1; i < n; i++) {
             for (int j = 1; j <= target; j++) {
                 boolean notTake = dp[i - 1][j];
